@@ -125,7 +125,7 @@ class Firebase_JWT_Adapter_Public
         );
 
         if (has_filter("fja_set_custom_claims")) {
-            $payload["claims"] = apply_filters("fja_set_custom_claims", array());
+            $payload["claims"] = apply_filters("fja_set_custom_claims", $uid);
         }
 
         return JWT::encode($payload, $private_key, "RS256");
